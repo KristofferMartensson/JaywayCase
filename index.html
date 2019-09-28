@@ -1,0 +1,19 @@
+<!doctype html>
+<html ng-app="robotApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="robot.js"></script>
+    <link rel="stylesheet" href="robot.css">
+  </head>
+  <body>
+    <h2>Robot</h2>
+    <div ng-controller="RobotController as robot">
+      <form ng-submit="robot.handleInput()">
+        <input type="text" ng-model="robot.inputText"  size="30"
+            placeholder="Write robot input">
+        <input class="btn-primary" type="submit" value="submit">
+      </form>
+      <p>Robot output: {{robot.output}}</p>
+    </div>
+  </body>
+</html>
