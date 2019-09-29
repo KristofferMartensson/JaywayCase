@@ -8,9 +8,20 @@
   <body>
     <h2>Robot</h2>
     <div ng-controller="RobotController as robot">
+      <form ng-submit="robot.handleStartPosition()">
+        <p>Choose starting position: </p>
+        <input type="text" ng-model="robot.startX" size = 10 
+          placeholder="Choose x">
+        <input type="text" ng-model="robot.startY" size = 10
+          placeholder="Choose y">
+        <input class="btn-primary" type="submit" value="submit">
+      </form>
+      <br/>
+      <p>Current position is: ({{robot.x}}, {{robot.y}}).</p>
+      <br/>
       <form ng-submit="robot.handleInput()">
         <input type="text" ng-model="robot.inputText"  size="30"
-            placeholder="Write robot input">
+          placeholder="Write robot input">
         <input class="btn-primary" type="submit" value="submit">
       </form>
       <p>Robot output: {{robot.output}}</p>

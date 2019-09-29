@@ -2,9 +2,21 @@ angular.module('robotApp', [])
   .controller('RobotController', function() {
     var robot = this;
     var direction;
-    var x = 0;
-    var y = 0;
- 
+    robot.x = 0;
+    robot.y = 0
+    
+    robot.handleStartPosition = function() {
+      console.log(typeof(robot.startX));
+      console.log("startx: " + robot.startX + "starty: " + robot.startY);
+      if (!isNaN(robot.startX) && !isNaN(robot.startY)){
+      robot.x = robot.startX;
+      robot.y = robot.startY;
+      } else {
+        robot.output = "Incorrect startposition"
+      }
+      console.log("x: " + robot.x + "y: " + robot.y);
+    }
+
     robot.handleInput = function() {
       direction = 0;
       var input = robot.inputText;
@@ -28,22 +40,22 @@ angular.module('robotApp', [])
             return;
         }
       }
-      robot.output = x + " " + y + " " + robotDirection();
+      robot.output = robot.x + " " + robot.y + " " + robotDirection();
     }
 
     function handleForward(){
       switch(direction){
         case 0:
-          y++
+          robot.y--
           break;
         case 1:
-          x++
+          robot.x++
           break;
         case 2:
-          y--
+          robot.y++
           break;
         case 3:
-          x--
+          robot.x--
           break;
         default:
           break;
@@ -68,7 +80,7 @@ angular.module('robotApp', [])
     }
 
     function handleWrongInput(){
-        console.log("Wrong input")
+        robot.output = "Incorrect input";
     }
 
     function robotDirection(){

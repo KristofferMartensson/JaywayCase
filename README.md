@@ -1,0 +1,1 @@
+Open index.html in a regular browser to run the program.
