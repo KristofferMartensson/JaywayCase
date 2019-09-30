@@ -17,6 +17,16 @@ angular.module('robotApp', [])
       console.log("x: " + robot.x + "y: " + robot.y);
     }
 
+    robot.handleReset = function(){
+      robot.x = 0;
+      robot.y = 0;
+      direction = 0;
+      robot.output = "";
+      document.getElementById('startX').value = '';
+      document.getElementById('startY').value = '';
+      document.getElementById('input').value = '';
+    }
+
     robot.handleInput = function() {
       direction = 0;
       var input = robot.inputText;

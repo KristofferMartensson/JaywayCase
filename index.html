@@ -6,25 +6,24 @@
     <link rel="stylesheet" href="robot.css">
   </head>
   <body>
-    <h2>Robot</h2>
     <div ng-controller="RobotController as robot">
+      <h2>Robby the robot.</h2>
       <form ng-submit="robot.handleStartPosition()">
         <p>Choose starting position: </p>
         <input type="text" ng-model="robot.startX" size = 10 
-          placeholder="Choose x">
+          placeholder="Choose x" id="startX">
         <input type="text" ng-model="robot.startY" size = 10
-          placeholder="Choose y">
-        <input class="btn-primary" type="submit" value="submit">
+          placeholder="Choose y" id="startY">
+        <input class="btn-primary" type="submit" value="Submit">
       </form>
-      <br/>
       <p>Current position is: ({{robot.x}}, {{robot.y}}).</p>
-      <br/>
       <form ng-submit="robot.handleInput()">
         <input type="text" ng-model="robot.inputText"  size="30"
-          placeholder="Write robot input">
-        <input class="btn-primary" type="submit" value="submit">
+          placeholder="Write robot input" id="input">
+        <input class="btn-primary" type="submit" value="Submit">
       </form>
       <p>Robot output: {{robot.output}}</p>
+      <button ng-click="robot.handleReset()">Reset</button> 
     </div>
   </body>
 </html>
