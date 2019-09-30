@@ -11,4 +11,4 @@ In terms of input, Robby understands:
 2. V or L to turn left
 3. G or F to go forward
 
-
+Example of input: "VGHVGGHVG".
