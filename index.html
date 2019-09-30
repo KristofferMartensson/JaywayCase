@@ -2,28 +2,28 @@
 <html ng-app="robotApp">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-    <script src="robot.js"></script>
-    <link rel="stylesheet" href="robot.css">
+    <script src="../JaywayCase/src/robot.js"></script>
+    <link rel="stylesheet" href="../JaywayCase/css/robot.css">
   </head>
   <body>
-    <div ng-controller="RobotController as robot">
+    <div ng-controller="RobotController">
       <h2>Robby the robot.</h2>
-      <form ng-submit="robot.handleStartPosition()">
+      <form ng-submit="handleStartPosition()">
         <p>Choose starting position: </p>
-        <input type="text" ng-model="robot.startX" size = 10 
+        <input type="text" ng-model="startX" size = 10 
           placeholder="Choose x" id="startX">
-        <input type="text" ng-model="robot.startY" size = 10
+        <input type="text" ng-model="startY" size = 10
           placeholder="Choose y" id="startY">
         <input class="btn-primary" type="submit" value="Submit">
       </form>
-      <p>Current position is: ({{robot.x}}, {{robot.y}}).</p>
-      <form ng-submit="robot.handleInput()">
-        <input type="text" ng-model="robot.inputText"  size="30"
+      <p>Current position is: ({{x}}, {{y}}).</p>
+      <form ng-submit="handleInput()">
+        <input type="text" ng-model="inputText"  size="30"
           placeholder="Write robot input" id="input">
         <input class="btn-primary" type="submit" value="Submit">
       </form>
-      <p>Robot output: {{robot.output}}</p>
-      <button ng-click="robot.handleReset()">Reset</button> 
+      <p>Robot output: {{output}}</p>
+      <button ng-click="handleReset()">Reset</button> 
     </div>
   </body>
 </html>
