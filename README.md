@@ -12,3 +12,5 @@ In terms of input, Robby understands:
 3. G or F to go forward
 
 Example of input: "VGHVGGHVG".
+
+If your input makes Robby walk into the wall he will stop walking.
