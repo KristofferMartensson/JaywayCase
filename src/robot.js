@@ -1,36 +1,42 @@
 var app = angular.module('robotApp', [])
 app.controller('RobotController', function RobotController($scope) {
-  var direction;
+  var direction, height, width, radius;
+  var hitTheWall = false;
   $scope.x = 0;
   $scope.y = 0
+
+  $scope.handleHeightWidth = function(){
+    width = $scope.width;
+    height = $scope.height;
+  }
+
+  $scope.handleRadius = function(){
+    radius = $scope.radius;
+  }
   
   $scope.handleStartPosition = function() {
-    console.log(typeof($scope.startX));
-    console.log("startx: " + $scope.startX + "starty: " + $scope.startY);
     if (!isNaN($scope.startX) && !isNaN($scope.startY)){
     $scope.x = $scope.startX;
     $scope.y = $scope.startY;
     } else {
       $scope.output = "Incorrect startposition"
     }
-    console.log("x: " + $scope.x + "y: " + $scope.y);
   }
 
   $scope.handleReset = function(){
-    $scope.x = 0;
-    $scope.y = 0;
-    direction = 0;
-    $scope.output = "";
-    document.getElementById('startX').value = '';
-    document.getElementById('startY').value = '';
-    document.getElementById('input').value = '';
+    location.reload();
   }
 
   $scope.handleInput = function() {
     direction = 0;
     var input = $scope.inputText;
     for (var i= 0; i < input.length; i++){
-      console.log(input.charAt(i));
+      if (hitTheWall == true){
+        $scope.output = "I hit the wall.";
+        $scope.x = 0;
+        $scope.y = 0;
+        return;
+      }
       switch(input.charAt(i)){
         case "G": 
         case "F":
@@ -68,7 +74,9 @@ app.controller('RobotController', function RobotController($scope) {
         break;
       default:
         break;
-      
+    }
+    if (contains($scope.x, $scope.y) === false) {
+      hitTheWall = true;
     }
   }
 
@@ -106,24 +114,20 @@ app.controller('RobotController', function RobotController($scope) {
         return "Direction error";
     }
   }
-});
-app.controller('RoomController', function RoomController($scope) {
 
-  $scope.handleQuadratic = function(){
-    document.getElementById("iframe1").src = 'quadraticform.html';
+  function contains(x, y){
+    if (typeof radius == 'undefined'){
+      if (x > width || y > height || x < 0  || y < 0){
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      if (Math.abs(x) + Math.abs(y) > radius){
+        return false;
+      } else {
+        return true;
+      }
+    }
   }
-
-  $scope.handleCircular = function(){
-    document.getElementById("iframe1").src = 'circularform.html';
-    console.log("Hello from handlecircular");
-  }
-
-  $scope.handleHeightWidth = function(){
-    console.log("side:" + $scope.width);
-  }
-
-  $scope.handleRadius = function(){
-    console.log("radius:" + $scope.radius);
-  }
-
 });

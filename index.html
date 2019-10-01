@@ -8,14 +8,27 @@
   <body>
     <div id="div1" ng-controller="RobotController">
       <h2>Robby the robot.</h2>
-      <div ng-controller="RoomController">
+      <div>
         <p>Choose room for Robby:</p>
-        <input type="radio" ng-click="handleQuadratic()" name="type">Quadratic</input>
+        <input type="radio" onclick="handleQuadratic()" name="type">Quadratic</input>
         </br>
-        <input type="radio" ng-click="handleCircular()" name="type">Circular</input>
-        <div class="iframe-container">
-          <iframe id="iframe1" src="" frameborder="0" scrolling="no"></iframe>
-        </div>
+        <input type="radio" onclick="handleCircular()" name="type">Circular</input>
+          <div id="quadratic" style="visibility: hidden">
+            <form ng-submit="handleHeightWidth()">
+              <input type="text" ng-model="height"  size="10"
+                placeholder="Height" id="height">
+                <input type="text" ng-model="width"  size="10"
+                  placeholder="Width" id="width">
+              <input class="btn-primary" type="submit" value="Submit">
+            </form>
+          </div>
+          <div id="circular" style="visibility: hidden">
+            <form ng-submit="handleRadius()">
+              <input type="text" ng-model="radius"  size="10"
+                placeholder="Radius" id="radius">
+              <input class="btn-primary" type="submit" value="Submit">
+            </form>
+          </div>
       </div>
       <form ng-submit="handleStartPosition()">
         <p>Choose starting position: </p>
@@ -35,4 +48,30 @@
       <button ng-click="handleReset()">Reset</button> 
     </div>
   </body>
+
+  <script>
+
+    function handleQuadratic() {
+      var quad = document.getElementById("quadratic");
+      var circ = document.getElementById("circular")
+      if (quad.style.visibility === "hidden") {
+        quad.style.visibility = "visible";
+      }
+      if (circ.style.visibility === "visible"){
+        circ.style.visibility = "hidden"
+      }
+    }
+
+    function handleCircular() {
+      var circ = document.getElementById("circular");
+      var quad = document.getElementById("quadratic");
+      if (circ.style.visibility === "hidden") {
+        circ.style.visibility = "visible";
+      }
+      if (quad.style.visibility === "visible"){
+        quad.style.visibility = "hidden"
+      }
+    }
+
+  </script>
 </html>
