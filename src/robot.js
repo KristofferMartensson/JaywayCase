@@ -1,17 +1,21 @@
 var app = angular.module('robotApp', [])
 app.controller('RobotController', function RobotController($scope) {
-  var direction, height, width, radius;
+  var direction;
+  $scope.height;
+  $scope.width;
+  $scope.radius;
   var hitTheWall = false;
   $scope.x = 0;
   $scope.y = 0
 
   $scope.handleHeightWidth = function(){
-    width = $scope.width;
-    height = $scope.height;
+    $scope.width = $scope.inputWidth;
+    $scope.height = $scope.inputHeight;
+    $scope.radius = undefined;
   }
 
   $scope.handleRadius = function(){
-    radius = $scope.radius;
+    $scope.radius = $scope.inputRadius;
   }
   
   $scope.handleStartPosition = function() {
@@ -31,12 +35,6 @@ app.controller('RobotController', function RobotController($scope) {
     direction = 0;
     var input = $scope.inputText;
     for (var i= 0; i < input.length; i++){
-      if (hitTheWall == true){
-        $scope.output = "I hit the wall.";
-        $scope.x = 0;
-        $scope.y = 0;
-        return;
-      }
       switch(input.charAt(i)){
         case "G": 
         case "F":
@@ -53,6 +51,12 @@ app.controller('RobotController', function RobotController($scope) {
         default: 
           handleWrongInput()
           return;
+      }
+      if (hitTheWall == true){
+        $scope.output = "I hit the wall.";
+        $scope.x = 0;
+        $scope.y = 0;
+        return;
       }
     }
     $scope.output = $scope.x + " " + $scope.y + " " + robotDirection();
@@ -116,14 +120,15 @@ app.controller('RobotController', function RobotController($scope) {
   }
 
   function contains(x, y){
-    if (typeof radius == 'undefined'){
-      if (x > width || y > height || x < 0  || y < 0){
+    if (typeof $scope.radius == 'undefined'){
+      if (x > $scope.width || y > $scope.height || x < 0  || y < 0){
         return false;
       } else {
         return true;
       }
     } else {
-      if (Math.abs(x) + Math.abs(y) > radius){
+      console.log(Math.abs(x) + Math.abs(y));
+      if (Math.abs(x) + Math.abs(y) > $scope.radius){
         return false;
       } else {
         return true;

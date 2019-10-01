@@ -15,16 +15,16 @@
         <input type="radio" onclick="handleCircular()" name="type">Circular</input>
           <div id="quadratic" style="visibility: hidden">
             <form ng-submit="handleHeightWidth()">
-              <input type="text" ng-model="height"  size="10"
+              <input type="text" ng-model="inputHeight"  size="10"
                 placeholder="Height" id="height">
-                <input type="text" ng-model="width"  size="10"
+                <input type="text" ng-model="inputWidth"  size="10"
                   placeholder="Width" id="width">
               <input class="btn-primary" type="submit" value="Submit">
             </form>
           </div>
           <div id="circular" style="visibility: hidden">
             <form ng-submit="handleRadius()">
-              <input type="text" ng-model="radius"  size="10"
+              <input type="text" ng-model="inputRadius"  size="10"
                 placeholder="Radius" id="radius">
               <input class="btn-primary" type="submit" value="Submit">
             </form>
