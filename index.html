@@ -6,8 +6,17 @@
     <link rel="stylesheet" href="./css/robot.css">
   </head>
   <body>
-    <div ng-controller="RobotController">
+    <div id="div1" ng-controller="RobotController">
       <h2>Robby the robot.</h2>
+      <div ng-controller="RoomController">
+        <p>Choose room for Robby:</p>
+        <input type="radio" ng-click="handleQuadratic()" name="type">Quadratic</input>
+        </br>
+        <input type="radio" ng-click="handleCircular()" name="type">Circular</input>
+        <div class="iframe-container">
+          <iframe id="iframe1" src="" frameborder="0" scrolling="no"></iframe>
+        </div>
+      </div>
       <form ng-submit="handleStartPosition()">
         <p>Choose starting position: </p>
         <input type="text" ng-model="startX" size = 10 

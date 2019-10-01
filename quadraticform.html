@@ -1,0 +1,12 @@
+<form ng-submit="handleHeightWidth()">
+    <input type="text" ng-model="height"  size="10"
+        placeholder="Height" id="height">
+        <input type="text" ng-model="width"  size="10"
+            placeholder="Width" id="width">
+    <input class="btn-primary" type="submit" value="Submit">
+</form>
+<div>
+<input type="radio" ng-click="handleQuadratic()" name="type">Quadratic</input>
+</br>
+<input type="radio" ng-click="handleCircular()" name="type">Circular</input>
+</div>
