@@ -2,13 +2,10 @@ describe('RobotController', function() {
     beforeEach(module('robotApp'));
 
     var $controller, $rootScope;
-    //var robot;
 
     beforeEach(inject(function(_$controller_, _$rootScope_){
-        // The injector unwraps the underscores (_) from around the parameter names when matching
         $controller = _$controller_;
         $rootScope = _$rootScope_;
-        //robot = _$robot_;
     }));
 
     describe('robot', function() {

@@ -7,6 +7,7 @@
   </head>
   <body>
     <div id="div1" ng-controller="RobotController">
+      <img src='robby.jpg' style="width:100px;height:150px;vertical-align:top;float:right;">
       <h2>Robby the robot.</h2>
       <div>
         <p>Choose room for Robby:</p>
@@ -15,16 +16,16 @@
         <input type="radio" onclick="handleCircular()" name="type">Circular</input>
           <div id="quadratic" style="visibility: hidden">
             <form ng-submit="handleHeightWidth()">
-              <input type="text" ng-model="inputHeight"  size="10"
+              <input type="number" ng-model="inputHeight"  size="10"
                 placeholder="Height" id="height">
-                <input type="text" ng-model="inputWidth"  size="10"
+                <input type="number" ng-model="inputWidth"  size="10"
                   placeholder="Width" id="width">
               <input class="btn-primary" type="submit" value="Submit">
             </form>
           </div>
           <div id="circular" style="visibility: hidden">
             <form ng-submit="handleRadius()">
-              <input type="text" ng-model="inputRadius"  size="10"
+              <input type="number" ng-model="inputRadius"  size="10"
                 placeholder="Radius" id="radius">
               <input class="btn-primary" type="submit" value="Submit">
             </form>
@@ -32,9 +33,9 @@
       </div>
       <form ng-submit="handleStartPosition()">
         <p>Choose starting position: </p>
-        <input type="text" ng-model="startX" size = 10 
+        <input type="number" ng-model="startX" size = 10 
           placeholder="Choose x" id="startX">
-        <input type="text" ng-model="startY" size = 10
+        <input type="number" ng-model="startY" size = 10
           placeholder="Choose y" id="startY">
         <input class="btn-primary" type="submit" value="Submit">
       </form>
@@ -44,8 +45,8 @@
           placeholder="Write robot input" id="input">
         <input class="btn-primary" type="submit" value="Submit">
       </form>
-      <p>Robot output: {{output}}</p>
-      <button ng-click="handleReset()">Reset</button> 
+      <p>Robbys output: {{output}}</p>
+      <button class="btn-primary" ng-click="handleReset()">Reset</button> 
     </div>
   </body>
 

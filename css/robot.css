@@ -4,7 +4,7 @@ body {
 div#div1 {
     background: #72A6A2;
     margin: auto;
-    height: 450px;
+    height: 460px;
     position: relative;
     border: 3px solid black;
     border-radius: 25px;
@@ -23,4 +23,23 @@ div#div1 {
 }
 p, h2{
     color: black;
+}
+
+.btn-primary {
+        color: #fff !important;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: #08384C;
+        padding: 5px;
+        border-radius: 30px;
+        display: inline-block;
+        border: none;
+        transition: all 0.4s ease 0s;
+}
+
+.btn-primary:hover {
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
 }
